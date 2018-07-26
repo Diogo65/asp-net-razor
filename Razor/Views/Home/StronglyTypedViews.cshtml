@@ -1,0 +1,20 @@
+﻿@*Acessando o tipo na camada de apresentação*@
+@model Razor.Models.Conta
+
+
+@{
+    ViewBag.Title = "StronglyTypedViews";
+}
+
+<h2>Acessando objeto via Strongly Typed Views</h2>
+
+<fieldset>
+    <legend>Dados via Strongly Typed Views</legend>
+        <p>Identificador único da conta: @Model.IdConta</p>
+        <p>Número da Conta: @Model.NumeroConta</p>
+        <p>Nome do Cliente: @Model.NomeCliente</p>
+        <p>Saldo Atual da Conta: @Model.SaldoAtual</p>
+        <p>Valor Limite do Cheque Especial: @Model.LimiteChequeEspecial</p>
+        <p>Data de Entrada no Cliente no Banco: @Model.DataDeEntrada</p>
+</fieldset>
+

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "ViewBagViewData";
+}
+
+<h2>Exemplo de utilização dos recursos de ViewData e ViewBag com tipos primitivos</h2>
+
+<p>Data Atual do Servidor: @ViewData["DataAtual"]</p>
+<p>Data Atual do Servidor: @ViewBag.DataAtual</p>
+
+
+<h2>Utilização de ViewData e ViewBag com tipos de dados complexos</h2>
+
+@{
+    var variavelViewData = ViewData["Conta"] as Razor.Models.Conta;
+    var variavelViewBag = ViewBag.Conta;
+
+    <fieldset>
+        <legend>Dados via ViewData</legend>
+        <p>
+            Identificador único da conta:
+            @variavelViewData.IdConta
+        </p>
+        <p>Número da Conta: @variavelViewData.NumeroConta</p>
+        <p>Nome do Cliente: @variavelViewData.NomeCliente</p>
+        <p>Saldo Atual da Conta: @variavelViewData.SaldoAtual</p>
+        <p>
+            Valor Limite do Cheque Especial:
+            @variavelViewData.LimiteChequeEspecial
+        </p>
+        <p>
+            Data de Entrada no Cliente no Banco:
+            @variavelViewData.DataDeEntrada
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <legend>Dados via ViewBag</legend>
+            <p>Identificador único da conta: @variavelViewBag.IdConta</p>
+            <p>Número da Conta: @variavelViewBag.NumeroConta</p>
+            <p>Nome do Cliente: @variavelViewBag.NomeCliente</p>
+            <p>Saldo Atual da Conta: @variavelViewBag.SaldoAtual</p>
+            <p>Valor Limite do Cheque Especial:
+                @variavelViewBag.LimiteChequeEspecial</p>
+            <p>Data de Entrada no Cliente no Banco:
+                @variavelViewBag.DataDeEntrada</p>
+    </fieldset>
+}

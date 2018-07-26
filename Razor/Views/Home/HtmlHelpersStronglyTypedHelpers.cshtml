@@ -1,0 +1,81 @@
+﻿@model Razor.Models.Conta
+
+@{
+    ViewBag.Title = "HtmlHelpersStronglyTypedHelpers";
+}
+
+<h2>Helper CheckBoxFor tipado----------------------------------------------------------</h2>
+
+@*Neste caso criamos uma expressão, onde x irá representar um objeto do tipo
+    Conta e após indicamos qual o campo que irá ser representado por
+    este componente, no caso o IndicaAtivo, conforme a linha*@
+
+@Html.CheckBoxFor(x => x.IndicaAtivo)
+
+<h2>Helper TextBoxFor tipado-----------------------------------------------------------</h2>
+
+@Html.TextBoxFor(x => x.NomeCliente)
+
+
+<h2>Helper TextAreaFor tipado-----------------------------------------------------------</h2>
+
+@Html.TextAreaFor(x => x.NomeCliente)
+
+
+<h2>Helper RadioButtonFor tipado-----------------------------------------------------------</h2>
+
+@Html.RadioButtonFor(x => x.TipoDeConta, "Conta Corrente")
+@Html.RadioButtonFor(x => x.TipoDeConta, "Conta Poupança")
+@Html.RadioButtonFor(x => x.TipoDeConta, "Conta Salário")
+
+
+<h2>Helper HiddenFor tipado-----------------------------------------------------------</h2>
+
+@*Este componente é bastante utilizado nos identificadores de tabelas, pois este campo não necessita ser exibido para o usuário da página*@
+@Html.HiddenFor(x => x.IdConta)
+
+
+<h2>Helper PasswordFor tipado-----------------------------------------------------------</h2>
+
+@Html.PasswordFor(x => x.SaldoAtual)
+
+
+<h2>Helper EditorFor-----------------------------------------------------------</h2>
+
+@*EditorFor criando o componente específico para cada tipo de dado*@
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Conta</legend>
+        @Html.LabelFor(Model => Model.NomeCliente)
+        @Html.EditorFor(Model => Model.NomeCliente)
+        <br />
+        @Html.LabelFor(Model => Model.IndicaAtivo)
+        @Html.EditorFor(Model => Model.IndicaAtivo)
+    </fieldset>
+}
+
+
+<h2>Helper EditorForModel-----------------------------------------------------------</h2>
+
+@*EditorForModel para a entidade Conta*@
+@*é capaz de nos gerar toda uma página para um determinado modelo*@
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Conta</legend>
+        @Html.EditorForModel()
+    </fieldset>
+}
+
+
+
+
+
+
+
+
+
+

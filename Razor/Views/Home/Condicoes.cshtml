@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Condicoes";
+}
+
+<h2>Condicoes com Razor</h2>
+
+@{ 
+    var texto = "";
+    if (DateTime.Now.Day <= 15)
+    {
+        texto = "Primeira quinzena do mês";
+    }
+    else
+    {
+        texto = "Segunda quinzena do mês";
+    }
+
+
+}
+
+Texto fora do bloco Razor: @texto
+
+
+

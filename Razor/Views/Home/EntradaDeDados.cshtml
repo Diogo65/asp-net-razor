@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "EntradaDeDados";
+}
+
+<h2>Leitura de Dados do Usuário</h2>
+
+@{ 
+    var valorTotal = "";
+
+    //fazemos a verificação se o botão Adicionar foi acionado e o formulário submetido.
+    if (IsPost)
+    {
+        //temos a criação de duas variáveis e a coleta dos dados enviados pelo formulário através do objeto Request, onde passamos um parâmetro que é o nome do input do HTML
+        var valor1 = Request["texto1"];
+        var valor2 = Request["texto2"];
+        var total = valor1.AsInt() + valor2.AsInt();
+        //processamento do cálculo e atribuição a uma nova variável valorTotal
+        valorTotal = "Total = " + total;
+    }
+}
+
+@*formulario com duas entrada de dados e um botao para enviar o formulário*@
+<form action="" method="post">
+    <fieldset>
+        <legend>Inforeme os Valores 1 e 2</legend>
+        <p>
+            <label for="texto1">Primeiro Valor</label>
+            <input type="number" name="texto1" />
+        </p>        
+        <p>
+            <label for="texto1">Segundo Valor</label>
+            <input type="number" name="texto2" />
+        </p>
+    </fieldset>
+    <p><input type="submit" name="Adicionar" /></p>
+</form>
+
+<p>@valorTotal</p>
+
+

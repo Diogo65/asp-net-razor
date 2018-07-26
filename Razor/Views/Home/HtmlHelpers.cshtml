@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "HtmlHelpers";
+}
+
+<h2>Helper ActionLink-------------------------------------------------------------------------------</h2>
+
+<a href="http://localhost:50686/Home/Index"> Link com HTML puro</a>
+@Html.ActionLink("Link com HTML Helpers", "Index", "Home")
+
+
+<h2>Helpers Forms------------------------------------------------------------------------------------</h2>
+
+@{ Html.BeginForm();}
+@*Itens do Formulário*@
+@{ Html.EndForm();}
+
+@*Também podemos utilizar o comando Using, assim garantimos que o formulário será fechado no final das instruções.
+    Neste caso não precisamos utilizar o helper EndForm*@
+
+@using (Html.BeginForm())
+{
+    <!--Itens do Formulário-->
+}
+
+@*  · actionName: nome da ação que deverá ser feita a requisição;
+    · controllerName: nome do controlador que será feita a requisição.
+      Definindo explicitamente Ação e Controlador do formulário*@
+
+@using (Html.BeginForm("Index", "Home"))
+{
+    <!--Itens do Formulário-->
+}
+
+
+<h2>Helper CheckBox------------------------------------------------------------------------------------</h2>
+
+@*Helper CheckBox, sendo o primeiro o campo que este componente irá representar e o segundo o valor padrão inicial, se é marcado ou desmarcado.*@
+@Html.CheckBox("Ativo", false)
+
+<input type="checkbox" name="Ativo" id="Ativo" />
+<input type="hidden" name="Ativo" value="false" />
+
+
+<h2>Helper TextBox------------------------------------------------------------------------------------</h2>
+
+@Html.TextBox("Nome", "Digite o nome do cliente")
+
+<input type="text" name="Nome" value="Digite o nome do cliente" />
+
+
+<h2>Helper TextArea------------------------------------------------------------------------------------</h2>
+
+@Html.TextArea("Observação", "Informações complementares")
+
+<textarea cols="20" id="Obs" name="Observacao" rows="2">Informações complementares</textarea>
+
+
+<h2>Helper RadioButton------------------------------------------------------------------------------------</h2>
+@*· name: nome do campo que este RadioButton representa na modelo de dados;
+    · value: qual o valor que será apresentado no campo;
+    · isChecked: indica se a opção virá marcada por padrão.*@
+
+@Html.RadioButton("Estado", "Paraná", false)
+@Html.RadioButton("Estado", "Rio Grande do Sul", true)
+@Html.RadioButton("Estado", "Santa Catarina", false)
+
+<input type="radio" name="Estado" value="Paraná" />
+<input type="radio" name="Estado" value="Rio Grande do Sul" />
+<input type="radio" name="Estado" value="Santa Catarina" />
+
+
+<h2>Helper Hidden------------------------------------------------------------------------------------</h2>
+@*Campo escondido via HTML padrão e HTML Helper*@
+@*No primeiro parâmetro temos qual o nome do campo que este componente irá representar no modelo e no segundo qual o valor deste campo.*@
+@Html.Hidden("Identificador", 1)
+
+<input type="hidden" name="Identificador" value="1" />
+
+<h2>Helper Password------------------------------------------------------------------------------------</h2>
+
+@*Campo de senha via HTML padrão e HTML Helper*@
+
+@Html.Password("Password")
+
+<input type="password" name="Password" />
+

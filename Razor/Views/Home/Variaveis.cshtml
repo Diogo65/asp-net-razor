@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Declaração e uso de variáveis</h2>
+
+@{ var site = "www.setevisual.com.br"; }
+
+<fieldset>
+    <legend>Bloco de declaração único</legend>
+    <p>Empresa: @site</p>
+</fieldset>
+
+    @{ 
+        int id = 1;
+        string nome = "Diogo S";
+        double valor = 12.75;
+        string sobrenome;
+        sobrenome = "Waynne";
+    }
+
+    <fieldset>
+        <legend>Bloco de declaração múltiplo</legend>
+        <p>Identificador: @id </p>
+        <p>Nome: @nome</p>
+        <p>Sobrenome: @sobrenome</p>
+        <p>Valor: @valor</p>
+    </fieldset>
+@*Final do código*@
